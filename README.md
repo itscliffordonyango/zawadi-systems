@@ -9,6 +9,7 @@
 ## ✨ Features
 
 ### Backend
+
 - JWT Authentication & Authorization
 - RESTful API with automatic Swagger/OpenAPI docs
 - SQLAlchemy ORM with Alembic migrations
@@ -16,6 +17,7 @@
 - SQLite (dev) / PostgreSQL (prod) support
 
 ### Frontend
+
 - Responsive POS interface
 - Real-time cart management
 - Inventory dashboard
@@ -35,12 +37,16 @@ Models: User, Product, Sale, SaleItem
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js 18+
 - Python 3.10+
 - [Optional] Gemini API Key (for AI features)
 
 ### 1. Clone & Setup Backend
+
 ```bash
+git clone https://github.com/itscliffordonyango/zawadi-systems.git
+
 cd zawadi-systems/backend
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
@@ -51,6 +57,7 @@ alembic upgrade head
 ```
 
 ### 2. Create `.env` file (backend)
+
 ```env
 SECRET_KEY=your-super-secret-key-change-in-production
 DATABASE_URL=sqlite+aiosqlite:///./zawadi.db
@@ -58,39 +65,45 @@ BACKEND_CORS_ORIGINS=http://localhost:3000
 ```
 
 ### 3. Run Backend
+
 ```bash
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
+
 - API Docs: http://localhost:8000/docs
 - Health: http://localhost:8000/health
 
 ### 4. Setup Frontend
+
 ```bash
 cd ../..  # back to root
 npm install
 ```
 
 ### 5. Create `.env.local` (frontend)
+
 ```env
 VITE_API_URL=http://localhost:8000
 VITE_GEMINI_API_KEY=your-gemini-key
 ```
 
 ### 6. Run Frontend
+
 ```bash
 npm run dev
 ```
+
 Open http://localhost:3000
 
 ## 📚 API Endpoints
 
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| POST | `/api/v1/auth/login` | User login | No |
-| POST | `/api/v1/auth/register` | User register | No |
-| POST | `/products/` | Create product | Yes* |
-| GET | `/` | Root check | No |
-| GET | `/health` | Health check | No |
+| Method | Endpoint                  | Description    | Auth |
+| ------ | ------------------------- | -------------- | ---- |
+| POST   | `/api/v1/auth/login`    | User login     | No   |
+| POST   | `/api/v1/auth/register` | User register  | No   |
+| POST   | `/products/`            | Create product | Yes* |
+| GET    | `/`                     | Root check     | No   |
+| GET    | `/health`               | Health check   | No   |
 
 _*Coming soon: Full CRUD endpoints_
 
@@ -103,6 +116,7 @@ _*Coming soon: Full CRUD endpoints_
 - **Migrations:** `alembic upgrade head`
 
 **Models:**
+
 - `User`: email, hashed_password
 - `Product`: name, category, price, stock, min_stock
 - `Sale`: total, payment_method, items
@@ -110,6 +124,7 @@ _*Coming soon: Full CRUD endpoints_
 ## ⚙️ Environment Variables
 
 ### Backend (`.env`)
+
 ```
 SECRET_KEY=super-secret-change-in-prod
 ACCESS_TOKEN_EXPIRE_MINUTES=30
@@ -118,6 +133,7 @@ BACKEND_CORS_ORIGINS=["http://localhost:3000", "http://localhost:3001"]
 ```
 
 ### Frontend (`.env.local`)
+
 ```
 VITE_API_URL=http://localhost:8000/api/v1
 VITE_GEMINI_API_KEY=your-gemini-key
@@ -174,4 +190,3 @@ Built with ❤️ using FastAPI, React, SQLAlchemy, and Vite.
 ---
 
 **⭐ Star us on GitHub if this helps your business!**
-
